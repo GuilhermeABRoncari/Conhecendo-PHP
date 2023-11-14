@@ -32,6 +32,8 @@ function ordenarPorNotas(array $nota1, array $nota2) : int
     return $nota1['nota'] <=> $nota2['nota'];
 }
 
+echo 'ORDENAÇÕES' . PHP_EOL;
+
 usort($nomesENotas, 'ordenarPorNotas'); // ordenação de arrys/maps customizavel pelo usuario, passando um array/map e uma função na assinatura do metodo.
 
 foreach ($nomesENotas as $nota) {
@@ -51,6 +53,10 @@ krsort($nomesENumeros); // faz a ordenação por ordem crescente baseado no valo
 
 var_dump($nomesENumeros);
 var_dump($numeros);
+
+echo PHP_EOL;
+
+echo 'METODOS BOOLEANOS NATIVOS DE ARRAYS DO PHP' . PHP_EOL;
 
 echo PHP_EOL;
 
@@ -81,3 +87,54 @@ var_dump(in_array(10, $nomesENumeros));
 $chave = array_search(10, $nomesENumeros);
 echo 'Quem tirou 10?' . PHP_EOL;
 echo $chave . PHP_EOL;
+
+echo PHP_EOL;
+
+echo 'METODOS DE MANIPULAÇÃO DE ARRAYS NATIVOS DO PHP'. PHP_EOL;
+
+echo PHP_EOL;
+
+// array_keys() - Função que retorna todas as 'chaves' de um array/map.
+$nomesFinais = array_keys($nomesENumeros);
+
+// array_values() - Função que retorna todas os 'valores' de um array/map.
+$notasFinais = array_values($nomesENumeros);
+
+/*
+ array_combine() - Função que combina arrays para formar maps, 
+ sendo as 'chaves' no primeiro parametro e os 'valores' o segundo parametro da assinatura do metodo.
+ !!! Ambos os Arrays devem possuir o mesmo tamanho !!!
+ */
+var_dump(array_combine($notasFinais, $nomesFinais));
+
+/*
+array_flip() - Função que inverte valores e chaves! Onde o 'valor' passa a ser a 'chave'.
+!!! Somente pode inverter Integers com Strings !!! 
+Valores nullos ou invalidos serão removidos do array/map.
+*/
+var_dump(array_flip($nomesENumeros));
+
+echo PHP_EOL;
+
+$alunos2023 = [
+    'Ana',
+    'Mendes',
+    'João',
+    'Guilherme',
+    'Alisson',
+    'Ranny',
+    'Newton',
+    'Paulo'
+];
+
+$novosAlunos = [
+    'Kilder',
+    'Marcio',
+    'Carlotta'
+];
+
+/*
+ array_merge() - Função que une um ou varios arrays do tipo list com outros arrays de tipo list realocando seus index.
+ Em caso de ser um array de tipo map com 'chaves' do tipo String, suas 'chaves' seram sobrescritas em caso de semelhança.
+ */
+$alunos2024 = array_merge($alunos2023, $novosAlunos);
