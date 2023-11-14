@@ -138,3 +138,22 @@ $novosAlunos = [
  Em caso de ser um array de tipo map com 'chaves' do tipo String, suas 'chaves' seram sobrescritas em caso de semelhança.
  */
 $alunos2024 = array_merge($alunos2023, $novosAlunos);
+
+// array_push() - Função que adicionar novos elementos no final de um array/map.
+var_dump(array_push($alunos2023, 'Carlos', 'Gabriele'));
+
+// array_unshift() - Função que adicionar novos elementos no inicio de um array/map.
+var_dump(array_unshift($alunos2023, 'Michele', 'Daniela'));
+
+
+// list() - Função que aplica a novas variaveis os valores de acordo com as suas posições em um array do tipo 'list'.
+$individuo = ['Guilherme', 28, true];
+list($nome, $idade, $casado) = $individuo;
+
+/*
+Essa sintax chama por debaixo dos panos a mesma função 'list()' anterior! 
+Mas neste exemplo estou usando um array do tipo 'map'.
+Desta forma, para atribuir cada valor adequadamente, deve se declarar qual a 'chave' que referencia cada valor.
+*/
+$individuo = ['nome' => 'Beto', 'idade' => 33, 'casado' => false];
+['nome' => $nome, 'idade' => $idade, 'casado' => $casado] = $individuo;
